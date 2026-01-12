@@ -8,7 +8,7 @@ const NavBar = () => {
         alignItems: "center",
         gap: "20px",
         padding: "20px",
-        backgroundColor: "#e5e5e5",
+        backgroundColor: "#ffeebe",
         color: "#222"
       }}
     >
