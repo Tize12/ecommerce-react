@@ -37,6 +37,10 @@ const NavBar = () => {
         </li>
 
         <li>
+          <Link to="/cart">Carrito</Link>
+        </li>
+        
+        <li>
           <Link
             to="/category/calzado"
             style={{ textDecoration: "none", color: "#222" }}

@@ -1,11 +1,17 @@
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+
 const ItemDetail = ({ item }) => {
+  const { addToCart } = useContext(CartContext);
+
   return (
     <div>
       <h2>{item.name}</h2>
-      <p>Precio: ${item.price}</p>
-      <button>Agregar al carrito</button>
+      <button onClick={() => addToCart(item)}>
+        Agregar al carrito
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default ItemDetail
+export default ItemDetail;
