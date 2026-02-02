@@ -1,5 +1,22 @@
-export const products = [
-  { id: "1", name: "Remera", price: 1000, category: "ropa" },
-  { id: "2", name: "Pantalón", price: 2000, category: "ropa" },
-  { id: "3", name: "Zapatillas", price: 5000, category: "calzado" },
+const products = [
+  {
+    id: 1,
+    name: "Remera",
+    category: "ropa",
+    price: 1000
+  },
+  {
+    id: 2,
+    name: "Pantalón",
+    category: "ropa",
+    price: 2000
+  },
+  {
+    id: 3,
+    name: "Zapatillas",
+    category: "calzado",
+    price: 5000
+  }
 ]
+
+export default products

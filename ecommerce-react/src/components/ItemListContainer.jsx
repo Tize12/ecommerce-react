@@ -1,23 +1,42 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { products } from "../data/products"
-import ItemDetail from "./ItemDetail"
+import products from "../data/products"
 
-const ItemDetailContainer = () => {
-  const [item, setItem] = useState(null)
-  const { itemId } = useParams()
+const ItemListContainer = ({ greeting }) => {
+  const { categoryId } = useParams()
+  const [items, setItems] = useState([])
 
   useEffect(() => {
-    const getItem = new Promise((resolve) => {
+    const getProducts = new Promise((resolve) => {
       setTimeout(() => {
-        resolve(products.find(p => p.id === itemId))
-      }, 500)
+        resolve(products)
+      }, 1000)
     })
 
-    getItem.then(res => setItem(res))
-  }, [itemId])
+    getProducts.then((data) => {
+      if (categoryId) {
+        const filtered = data.filter(
+          (product) => product.category === categoryId
+        )
+        setItems(filtered)
+      } else {
+        setItems(data)
+      }
+    })
+  }, [categoryId])
 
-  return item && <ItemDetail item={item} />
+  return (
+    <div style={{ padding: "20px" }}>
+      <h2>{greeting}</h2>
+
+      {items.map((item) => (
+        <div key={item.id}>
+          <h3>{item.name}</h3>
+          <p>Precio: ${item.price}</p>
+        </div>
+      ))}
+    </div>
+  )
 }
 
-export default ItemDetailContainer
+export default ItemListContainer
