@@ -1,4 +1,5 @@
 import CartWidget from "./CartWidget"
+import { Link } from "react-router-dom"
 
 const NavBar = () => {
   return (
@@ -23,9 +24,26 @@ const NavBar = () => {
           padding: 0
         }}
       >
-        <li style={{ cursor: "pointer" }}>Inicio</li>
-        <li style={{ cursor: "pointer" }}>Productos</li>
-        <li style={{ cursor: "pointer" }}>Contacto</li>
+        <li>
+          <Link to="/" style={{ textDecoration: "none", color: "#222" }}>
+            Inicio
+          </Link>
+        </li>
+
+        <li>
+          <Link to="/category/ropa" style={{ textDecoration: "none", color: "#222" }}>
+            Ropa
+          </Link>
+        </li>
+
+        <li>
+          <Link
+            to="/category/calzado"
+            style={{ textDecoration: "none", color: "#222" }}
+          >
+            Calzado
+          </Link>
+        </li>
       </ul>
 
       <CartWidget />
